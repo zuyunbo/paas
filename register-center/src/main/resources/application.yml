@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: register-center
+server:
+  port: 8761
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:${server.port}/eureka/
+    register-with-eureka: true
+    fetch-registry: false
