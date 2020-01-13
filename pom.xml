@@ -3,7 +3,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-
     <groupId>com.start</groupId>
     <artifactId>paas</artifactId>
     <version>1.0</version>
@@ -13,7 +12,11 @@
 
     <modules>
         <module>register-center</module>
-
+        <module>user-center</module>
+        <module>config-center</module>
+        <module>api-modle</module>
+        <module>log-start</module>
+        <module>commons</module>
     </modules>
 
     <parent>
