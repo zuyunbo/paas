@@ -1,0 +1,18 @@
+server:
+  port: 0
+spring:
+  application:
+    name: config-center
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/configs/{profile}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      registry-fetch-interval-seconds: 5
