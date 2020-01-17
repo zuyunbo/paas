@@ -17,8 +17,7 @@
         <module>api-modle</module>
         <module>log-start</module>
         <module>commons</module>
-        <module>capacity-center</module>
-        <module>check-center</module>
+        <module>oauth-center</module>
     </modules>
 
     <parent>
