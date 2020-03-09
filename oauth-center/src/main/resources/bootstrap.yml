@@ -9,19 +9,9 @@ spring:
       profile: dev
       fail-fast: true
 
-auth-server-url: http://localhost:8011
 
 server:
-  port: 8011
-security:
-  oauth2:
-    client:
-      client-id: client1
-      client-secret: 123456
-      scope: test
-      access-token-uri: ${auth-server-url}/oauth/token
-      user-authorization-uri: ${auth-server-url}/oauth/authorize
-    resource:
-      token-info-uri: ${auth-server-url}/oauth/check_token
+  port: 8012
+
 
 

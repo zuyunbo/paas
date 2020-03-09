@@ -18,6 +18,7 @@
         <module>log-start</module>
         <module>commons</module>
         <module>oauth-center</module>
+        <module>gateway-zuul</module>
     </modules>
 
     <parent>
