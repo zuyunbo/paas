@@ -1,0 +1,7 @@
+zuul:
+  ignored-services: '*'
+  sensitiveHeaders:
+  routes:
+    oauth:
+      path: /api-o/**
+      serviceId: http://www.ityouknow.com/
