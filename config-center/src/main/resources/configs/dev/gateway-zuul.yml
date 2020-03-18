@@ -5,3 +5,18 @@ zuul:
     oauth:
       path: /api-o/**
       serviceId: http://www.ityouknow.com/
+
+
+
+    budgetQL:
+      path: /graphql
+      serviceId: budject
+
+
+
+
+
+
+
+
+

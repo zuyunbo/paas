@@ -1,0 +1,44 @@
+type Query {
+    findBooks: [Book]
+
+    stageWorkflowInstanceAll(page: Int = 1, pageSize: Int = 15):[StageWorkflowInstance]
+
+}
+
+
+
+# 流程实例
+type StageWorkflowInstance{
+    # 主键
+    id: ID
+    # 创建时间
+    createdAt: String
+    # 创建人
+    creator: String
+    # 项目
+    project: ID
+    # 流程实例的状态  为'back'时，返回至创建页面 为'end'时，返回至列表页
+    status: String
+    # 类型
+    type: String
+    # 付款审批数据
+    returnPayments:YsPayment
+}
+
+type YsPayment{
+    #付款ID
+    id: ID
+    #付款金额
+    fkMoney: Int
+    #付款备注
+    remarks: String
+    #付款申请时间
+    startTime: String
+    #付款状态0审批中1审批完成2已付款3审批退回
+    status: String
+    #流程实体
+    #审批步骤名称
+    stepName:String
+}
+
+

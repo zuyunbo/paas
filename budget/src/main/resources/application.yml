@@ -1,0 +1,45 @@
+
+server:
+  port: 8881
+
+#  spring druid 配置数据源本次使用的是mysql
+spring:
+  #连接池配置
+  application:
+    name: budject
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    #  配置连接池属性
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://47.102.200.238:30411/suty?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: yV2jJxvNs8BD
+
+mybatis:
+  # mybatis扫描 使得数据库字段和实体对应
+  type-aliases-package: com.whir.budget.entity
+  # 我们xml 所存储的地方
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    #使用jdbc的getGeneratekeys获取自增主键值
+    use-generated-keys: true
+    #开启mybatis缓存策略
+    cache-enabled: false
+    #开启驼峰命名转换       如数据库  user_name  对应实体  userName
+    map-underscore-to-camel-case: true
+
+#分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+#  通用mapper
+mapper:
+  mappers:
+    - tk.mybatis.mapper.common.Mapper
+  not-empty: true
+
+
+
