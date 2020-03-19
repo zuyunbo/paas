@@ -20,17 +20,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "YS_BUDGET")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class YsBudget extends BaseEntity {
-    /**
-     * 预算ID
-     */
-    @Id
-    @Column(name = "ID")
-    @GeneratedValue(generator = "ys_budget_gen")
-    @TableGenerator(name = "ys_budget_gen", table = "sys_sequence", pkColumnName = "gen_name", pkColumnValue = "ys_budget:id", valueColumnName = "gen_value")
-    private Long id;
+
     /**
      * 预算编号
      */

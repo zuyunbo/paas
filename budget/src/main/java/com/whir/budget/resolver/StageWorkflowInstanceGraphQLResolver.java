@@ -26,9 +26,15 @@ public class StageWorkflowInstanceGraphQLResolver implements GraphQLResolver<LcS
         return ysPaymentDao.selectByPrimaryKey(instance.getProject());
     }
 
-
-    public LcStageWorkflowStep stageWorkflowSteps(LcStageWorkflowInstance lcStageWorkflowInstance){
-        return lcStageWorkflowStepDao.selectByPrimaryKey(lcStageWorkflowInstance.getStepId());
+    /**
+     * 根据当前步骤Id查询步骤
+     */
+    public LcStageWorkflowStep step(LcStageWorkflowInstance lcStageWorkflowInstance){
+        if (lcStageWorkflowInstance.getStepId() != null){
+            return  lcStageWorkflowStepDao.selectByPrimaryKey(lcStageWorkflowInstance.getStepId());
+        }else {
+            return null;
+        }
     }
 
 

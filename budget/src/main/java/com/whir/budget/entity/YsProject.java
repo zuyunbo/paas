@@ -131,4 +131,7 @@ public class YsProject extends BaseEntity {
     @Column(name = "STEPID" )
     private  Long  step;
 
+
+    private Long ysId;
+
 }

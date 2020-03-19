@@ -2,6 +2,10 @@
 server:
   port: 8881
 
+
+logging:
+  level:
+    com.whir.budget.dao: debug
 #  spring druid 配置数据源本次使用的是mysql
 spring:
   #连接池配置

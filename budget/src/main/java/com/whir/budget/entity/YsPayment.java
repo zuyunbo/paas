@@ -92,4 +92,9 @@ public class YsPayment extends BaseEntity {
     @Column(name = "STEP_NAME")
     private String stepName;
 
+    /**
+     * 预算拆分id
+     */
+    private Long proId;
+
 }
