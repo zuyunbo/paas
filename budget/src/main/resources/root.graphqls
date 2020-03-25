@@ -1,0 +1,128 @@
+type Query {
+
+    stageWorkflowInstanceAll(page: Int = 1, pageSize: Int = 15):StageWorkflowInstanceCon
+
+}
+
+
+
+# 流程实例
+type StageWorkflowInstance{
+    # 主键
+    id: ID
+    # 创建时间
+    createdAt: String
+    # 创建人
+    creator: String
+    # 项目
+    project: ID
+    # 流程实例的状态  为'back'时，返回至创建页面 为'end'时，返回至列表页
+    status: String
+    # 类型
+    type: String
+    # 付款审批数据
+    returnPayments:YsPayment
+    # 审批步骤
+    step:StageWorkflowStep
+}
+
+type YsPayment{
+    #付款ID
+    id: ID
+    #付款金额
+    fkMoney: Int
+    #付款备注
+    remarks: String
+    #付款申请时间
+    startTime: String
+    #付款状态0审批中1审批完成2已付款3审批退回
+    status: String
+    #审批步骤名称
+    stepName:String
+    #预算拆分
+    returnProject:Project
+}
+
+# 步骤
+type StageWorkflowStep {
+    # 主键
+    id: ID
+    # 名称
+    name: String
+
+}
+
+# 项目
+type Project {
+    #项目ID
+    id: ID
+    #项目编号
+    sn: String
+    #项目名称
+    name: String
+    #采购数量
+    num:Int
+    #拆分预算金额
+    xmMoney: Int
+    #招标完成金额
+    zbmoney:Int
+    #合同金额
+    contractMoney:Int
+    #单位自筹金额
+    selfMoney:Int
+
+    returnBudget:Budget
+}
+
+type Budget {
+    # 预算id
+    id: ID
+    # 预算编号
+    sn: String
+    # 预算名称
+    name: String
+    # 预算年度
+    year: String
+    # 预算类别
+    type: String
+    # 预算金额
+    budgetMoney: Int
+    # 已申请金额
+    appliedMoney: Int
+    # 预算余额
+    budgetBalance: Int
+    # 备注
+    remarks: String
+    #付款审核状态0未申请1审批中2审批通过
+    status: String
+    #进度
+    progress: String
+    # 医院
+    returnDepartment: Department
+
+}
+
+type Department {
+    id: String
+    # 部门编码
+    sn: String
+    # 部门名称
+    name: String
+    # 部门描述信息
+    description: String
+    # 部门包含的职务
+    # 包含所有父级节点的ID
+    path: String
+    # 排序字段
+    sort: Int
+}
+
+
+type StageWorkflowInstanceCon{
+    totalCount :Int
+    pageSize : Int
+    totalPage :Int
+    currentPage : Int
+    edges: [StageWorkflowInstance]
+}
+
