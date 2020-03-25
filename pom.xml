@@ -19,6 +19,7 @@
         <module>commons</module>
         <module>oauth-center</module>
         <module>gateway-zuul</module>
+        <module>api-service</module>
     </modules>
 
     <parent>
