@@ -5,9 +5,9 @@ logging:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/ceshi?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    url: jdbc:mysql://47.111.237.66:3306/paas?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
     username: root
-    password: 12345678
+    password: 123456
     hikari:
       minimum-idle: 5
       maximum-pool-size: 20
