@@ -4,7 +4,6 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.zuul</groupId>
     <artifactId>gateway-zuul</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>gateway-zuul</name>
 
 
@@ -22,7 +21,6 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
@@ -35,6 +33,13 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.cloud.commons</groupId>
+            <artifactId>commons</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
 
         <dependency>
             <groupId>io.springfox</groupId>
