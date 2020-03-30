@@ -19,17 +19,6 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @EnableWebSecurity//开启权限验证
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
   /**
-   * 配置这个bean会在做AuthorizationServerConfigurer配置的时候使用
-   * @return
-   * @throws Exception
-   */
-  @Bean
-  @Override
-  public AuthenticationManager authenticationManagerBean() throws Exception {
-    return super.authenticationManagerBean();
-  }
-  
-  /**
    * 配置用户
    * 使用内存中的用户，实际项目中，一般使用的是数据库保存用户，具体的实现类可以使用JdbcDaoImpl或者JdbcUserDetailsManager
    * @return

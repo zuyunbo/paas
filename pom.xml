@@ -14,7 +14,7 @@
         <module>register-center</module>
         <module>user-center</module>
         <module>config-center</module>
-        <module>api-modle</module>
+        <module>api-model</module>
         <module>log-start</module>
         <module>log-center</module>
         <module>commons</module>
