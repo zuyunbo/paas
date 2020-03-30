@@ -16,6 +16,7 @@
         <module>config-center</module>
         <module>api-modle</module>
         <module>log-start</module>
+        <module>log-center</module>
         <module>commons</module>
         <module>oauth-center</module>
         <module>gateway-zuul</module>

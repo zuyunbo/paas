@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: log-center
+  data:
+    elasticsearch:
+      cluster-name: log-center
+      cluster-nodes: 127.0.0.1:9300
+      repositories:
+        enabled: true
+server:
+  servlet:
+    context-path: /log-center
+  port:
+logging:
+  config: classpath:logback-spring.xml
