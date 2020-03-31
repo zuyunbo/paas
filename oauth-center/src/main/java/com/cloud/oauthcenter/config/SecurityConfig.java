@@ -1,22 +1,22 @@
 package com.cloud.oauthcenter.config;
 
+import com.cloud.oauthcenter.service.impl.UserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 /**
  * 配置spring security
  *
- * @author simon
- * @create 2018-10-29 16:25
+ * @author 2u
  **/
 @EnableWebSecurity//开启权限验证
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -30,24 +30,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
    */
   @Bean
   @Override
-  protected UserDetailsService userDetailsService() {
-    InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-    manager.createUser(User.withUsername("admin").password(new BCryptPasswordEncoder().encode("admin")).authorities("USER").build());
-    return manager;
+  public UserDetailsService userDetailsService() {
+    return new UserDetailServiceImpl();
   }
+
+
   @Bean
   @Override
   public AuthenticationManager authenticationManagerBean() throws Exception {
     return super.authenticationManagerBean();
   }
-  
-//  @Override
-//  protected void configure(HttpSecurity http) throws Exception {
-//    http.requestMatchers().anyRequest().and().authorizeRequests().antMatchers("/oauth/*").permitAll();
-//  }
-  
+
+
+
   @Override
   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
     auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder);
   }
+
+
+
+
+
 }
