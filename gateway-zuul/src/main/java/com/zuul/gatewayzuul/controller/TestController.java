@@ -38,10 +38,10 @@ public class TestController {
     @PostMapping("/token/{code}")
     public Map<String, Object> login(@PathVariable String code) {
         Map<String, String> parameters = new HashMap<>();
-        parameters.put("grant_type", "authorization_code");
+        parameters.put("grant_type", Oauth2Enum.CLIENT_CODE.getEnum());
         parameters.put("client_id", Oauth2Enum.CLIENT_ID.getEnum());
         parameters.put("client_secret", Oauth2Enum.CLIENT_SECRET.getEnum());
-        parameters.put("redirect_uri", "http://baidu.com");
+        parameters.put("redirect_uri", Oauth2Enum.CLIENT_URL.getEnum());
         parameters.put("code", code);
         Map<String, Object> tokenInfo = oauth2Client.postAccessToken(parameters);
         return tokenInfo;

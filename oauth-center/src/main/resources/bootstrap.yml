@@ -8,7 +8,16 @@ spring:
         serviceId: config-center
       profile: dev
       fail-fast: true
-
+  datasource:
+    type: com.zaxxer.hikari.util.DriverDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    jdbc-url: jdbc:mysql://47.111.237.66:3306/paas?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    username: root
+    password: 123456
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      connection-test-query: SELECT 1
 eureka:
   client:
     serviceUrl:
