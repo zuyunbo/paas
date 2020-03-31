@@ -1,6 +1,7 @@
 package com.cloud.usercenter.service;
 
 import com.cloud.modle.apimodle.user.AppUser;
+import com.cloud.modle.apimodle.user.LoginAppUser;
 import com.cloud.modle.apimodle.user.SysRole;
 
 import java.util.Map;
@@ -11,6 +12,9 @@ public interface AppUserService {
 	void addAppUser(AppUser appUser);
 
 	void updateAppUser(AppUser appUser);
+
+	LoginAppUser findByUsername(String username);
+
 
 	AppUser findById(Long id);
 

@@ -1,6 +1,7 @@
 package com.cloud.usercenter.service.impl;
 
 import com.cloud.modle.apimodle.user.SysPermission;
+import com.cloud.usercenter.dao.AppUserDao;
 import com.cloud.usercenter.dao.RolePermissionDao;
 import com.cloud.usercenter.dao.SysPermissionDao;
 import com.cloud.usercenter.service.SysPermissionService;
@@ -9,15 +10,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.*;
 
 @Slf4j
 @Service
 public class SysPermissionServiceImpl implements SysPermissionService {
 
-	@Autowired
+	@Resource
 	private SysPermissionDao sysPermissionDao;
-	@Autowired
+	@Resource
 	private RolePermissionDao rolePermissionDao;
 
 	@Override

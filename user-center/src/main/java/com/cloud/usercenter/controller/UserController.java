@@ -2,6 +2,7 @@ package com.cloud.usercenter.controller;
 
 
 import com.cloud.modle.apimodle.user.AppUser;
+import com.cloud.modle.apimodle.user.LoginAppUser;
 import com.cloud.modle.apimodle.user.SysRole;
 import com.cloud.usercenter.service.AppUserService;
 import lombok.extern.slf4j.Slf4j;
@@ -17,6 +18,10 @@ public class UserController {
     @Autowired
     private AppUserService appUserService;
 
+    @GetMapping(value = "/users-anon/internal", params = "username")
+    public LoginAppUser findByUsername(String username) {
+        return appUserService.findByUsername(username);
+    }
 
 
 

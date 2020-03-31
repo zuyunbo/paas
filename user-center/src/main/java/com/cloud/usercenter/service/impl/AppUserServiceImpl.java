@@ -1,9 +1,7 @@
 package com.cloud.usercenter.service.impl;
 
 
-import com.cloud.modle.apimodle.user.AppUser;
-import com.cloud.modle.apimodle.user.SysRole;
-import com.cloud.modle.apimodle.user.UserCredential;
+import com.cloud.modle.apimodle.user.*;
 import com.cloud.usercenter.dao.AppUserDao;
 import com.cloud.usercenter.dao.UserCredentialsDao;
 import com.cloud.usercenter.dao.UserRoleDao;
@@ -11,11 +9,14 @@ import com.cloud.usercenter.service.AppUserService;
 import com.cloud.usercenter.service.SysPermissionService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author zuyunbo
@@ -64,6 +65,35 @@ public class AppUserServiceImpl implements AppUserService {
         log.info("修改用户：{}", appUser);
     }
 
+
+    @Transactional
+    @Override
+    public LoginAppUser findByUsername(String username) {
+        AppUser appUser = userCredentialsDao.findUserByUsername(username);
+        if (appUser != null) {
+            LoginAppUser loginAppUser = new LoginAppUser();
+            BeanUtils.copyProperties(appUser, loginAppUser);
+
+            Set<SysRole> sysRoles = userRoleDao.findRolesByUserId(appUser.getId());
+            loginAppUser.setSysRoles(sysRoles);// 设置角色
+
+            if (!CollectionUtils.isEmpty(sysRoles)) {
+                Set<Long> roleIds = sysRoles.parallelStream().map(SysRole::getId).collect(Collectors.toSet());
+                Set<SysPermission> sysPermissions = sysPermissionService.findByRoleIds(roleIds);
+                if (!CollectionUtils.isEmpty(sysPermissions)) {
+                    Set<String> permissions = sysPermissions.parallelStream().map(SysPermission::getPermission)
+                            .collect(Collectors.toSet());
+
+                    loginAppUser.setPermissions(permissions);// 设置权限集合
+                }
+
+            }
+
+            return loginAppUser;
+        }
+
+        return null;
+    }
 
     @Override
     public AppUser findById(Long id) {
