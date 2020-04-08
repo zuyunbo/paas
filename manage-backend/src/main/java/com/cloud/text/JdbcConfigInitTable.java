@@ -13,7 +13,7 @@ import java.util.Objects;
  * @author zuyunbo
  */
 @Configuration
-public class JdbcConfig {
+public class JdbcConfigInitTable {
 
     private Connection con = null;
 

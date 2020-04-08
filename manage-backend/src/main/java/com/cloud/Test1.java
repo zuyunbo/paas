@@ -1,7 +1,7 @@
 package com.cloud;
 
 
-import com.cloud.text.JdbcConfig;
+import com.cloud.text.JdbcConfigInitTable;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -17,7 +17,7 @@ import java.util.List;
 public class Test1 {
 
     @Autowired
-    private JdbcConfig jdbcConfig;
+    private JdbcConfigInitTable jdbcConfig;
 
     @GetMapping("/test")
     public List<String> principal() {
