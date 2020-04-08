@@ -21,6 +21,8 @@
         <module>oauth-center</module>
         <module>gateway-zuul</module>
         <module>api-service</module>
+        <module>manage-backend</module>
+
     </modules>
 
     <parent>
