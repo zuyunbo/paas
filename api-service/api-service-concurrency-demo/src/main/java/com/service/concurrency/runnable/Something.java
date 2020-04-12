@@ -67,7 +67,7 @@ public class Something {
             } else {
                 innerList.remove(MAX_CAPACITY - 1);
             }
-            System.out.println(Thread.currentThread().toString() + " remove");
+            System.out.println(Thread.currentThread().toString() + "  remove");
         }
 
         boolean isEmpty() {
