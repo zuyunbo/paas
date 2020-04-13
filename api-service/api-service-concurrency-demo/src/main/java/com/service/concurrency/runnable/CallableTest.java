@@ -34,6 +34,7 @@ public class CallableTest {
 
         try {
             List list1 = futureTask.get();
+
             List list2 = futureTask2.get();
             List list3 = listFutureTask.get();
             returnMap.put("list1",list1);
