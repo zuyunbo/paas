@@ -48,6 +48,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder);
   }
 
+  public static void main(String[] args) {
+    BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+    String encode = bCryptPasswordEncoder.encode("123456");
+    System.out.println(encode);
+  }
+
 
 
 

@@ -52,7 +52,7 @@ public class AppUserServiceImpl implements AppUserService {
         appUser.setCreateTime(new Date());
         appUser.setUpdateTime(appUser.getCreateTime());
 
-        appUserDao.save(appUser);
+        int save = appUserDao.save(appUser);
         userCredentialsDao
                 .save(new UserCredential(appUser.getUsername(), "USERNAME", appUser.getId()));
         log.info("添加用户：{}", appUser);
