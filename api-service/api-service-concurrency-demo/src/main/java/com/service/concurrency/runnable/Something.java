@@ -105,10 +105,10 @@ public class Something {
             }
         };
 
-            new Thread(runConsume).start();
-            new Thread(runConsume).start();
-            new Thread(runProduce).start();
-            new Thread(runProduce).start();
+        new Thread(runConsume).start();
+        new Thread(runConsume).start();
+        new Thread(runProduce).start();
+        new Thread(runProduce).start();
 
     }
 }

@@ -22,7 +22,7 @@ public class CallableTest {
         Callable<List<String>> callable2 = () -> null;
 
         FutureTask<List> futureTask = new FutureTask<>(callable);
-        FutureTask<List> futureTask2= new FutureTask<>(callable1);
+        FutureTask<List> futureTask2 = new FutureTask<>(callable1);
         FutureTask<List<String>> listFutureTask = new FutureTask<>(callable2);
 
         Thread t1 = new Thread(futureTask);
@@ -37,17 +37,17 @@ public class CallableTest {
 
             List list2 = futureTask2.get();
             List list3 = listFutureTask.get();
-            returnMap.put("list1",list1);
-            returnMap.put("list2",list2);
-            returnMap.put("list3",list3);
+            returnMap.put("list1", list1);
+            returnMap.put("list2", list2);
+            returnMap.put("list3", list3);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             t1.interrupt(); //关闭线程
             t2.interrupt();
             t3.interrupt();
         }
-  }
+    }
 }

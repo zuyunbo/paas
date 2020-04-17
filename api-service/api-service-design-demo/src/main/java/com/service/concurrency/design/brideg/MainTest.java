@@ -4,7 +4,7 @@ public class MainTest {
 
 
     public static void main(String[] args) {
-        RefinedCoffee largeWithMilk=new LargeCoffee(new Milk());
+        RefinedCoffee largeWithMilk = new LargeCoffee(new Milk());
 
     }
 }

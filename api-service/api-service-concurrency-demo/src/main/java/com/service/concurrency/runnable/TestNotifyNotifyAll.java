@@ -16,9 +16,9 @@ public class TestNotifyNotifyAll {
         t3.start();
 
 
-		//RunnableImplC notifyAll()
-		Thread t4 = new Thread(new RunnableImplC(obj));
-		t4.start();
+        //RunnableImplC notifyAll()
+        Thread t4 = new Thread(new RunnableImplC(obj));
+        t4.start();
     }
 
 

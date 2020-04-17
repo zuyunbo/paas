@@ -14,6 +14,7 @@ public class ShutdownNowTest {
                 public void run() {
                     System.out.println(str);
                 }
+
                 // 为了后面展示未执行的任务，这里重写toString()方法
                 @Override
                 public String toString() {

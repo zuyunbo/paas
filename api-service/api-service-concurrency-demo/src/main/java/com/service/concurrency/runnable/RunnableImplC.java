@@ -1,7 +1,6 @@
 package com.service.concurrency.runnable;
 
 
-
 class RunnableImplC implements Runnable {
 
     private Object obj;
