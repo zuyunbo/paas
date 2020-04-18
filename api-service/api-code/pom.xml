@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>api-service-io-demo</artifactId>
+    <artifactId>api-code</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>api-service-io-demo</name>
+    <name>api-code</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -23,7 +23,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
-
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
