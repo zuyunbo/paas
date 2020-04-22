@@ -1,13 +1,16 @@
 package com.example.apicode.service;
 
+import java.util.Map;
+
 /**
  * @author zuyunbo
  */
 public interface GetTypeService {
     /**
-     * 获取文件类型
+     * get type scope
      */
-    void getType();
+    Map<Object,Object> getType();
+
 
 
 }

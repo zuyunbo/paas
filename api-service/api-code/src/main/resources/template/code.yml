@@ -1,0 +1,14 @@
+- apiVersion: apps/v1beta1
+  kind: Field
+  metadata:
+    name: ${type}.${name}
+  spec:
+    id: "${TYPE}.${NAME}"
+    name: "${NAME}"
+    kind: ${TYPE}
+    type:
+      repeated: false
+      required: false
+      kind: ${RETURNCODE}
+    deprecated: false
+    description: ${DESCURIPTION}
